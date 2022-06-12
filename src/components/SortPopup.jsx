@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SortPopup({items, onClick}) {
+const SortPopup = React.memo(function SortPopup({items, onClick}) {
 
 	const sortRef = React.useRef();
 
@@ -60,6 +60,6 @@ function SortPopup({items, onClick}) {
 	    </div>}
     </div>
   )
-}
+});
 
 export default SortPopup
