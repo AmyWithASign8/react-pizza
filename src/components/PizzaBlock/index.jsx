@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import PropTypes, { string } from 'prop-types';
+import PropTypes from 'prop-types';
 
 
 function PizzaBlock({name, imageUrl, price, types, sizes}) {
