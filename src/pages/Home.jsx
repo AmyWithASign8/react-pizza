@@ -43,10 +43,11 @@ function Home( ) {
 						<div className="content__top">
 							<Categories
 								activeCategory={category}
-								onClickItem={onSelectCategories}
+								onClickCategory={onSelectCategories}
 								items={categoryNames}
 							/>
 							<SortPopup
+								onChangeSortType={sortBy}
 								items={sortItems}
 							/>
 						</div>
