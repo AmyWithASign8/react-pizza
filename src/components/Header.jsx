@@ -1,5 +1,5 @@
 import React from "react";
-import logoSvg from "../assets/img/pizza-logo.svg";
+import logoSvg from "../assets/img/favicon.png";
 import '../App.css'; 
 import {Button} from "./Button";
 import {Link} from "react-router-dom"
@@ -10,7 +10,7 @@ function Header(){
             <div className="container">
                 <Link to="/">
                 <div className="header__logo">
-                    <img width="38" src={logoSvg} alt="Pizza logo"/>
+                    <img width="50" src={logoSvg} alt="Pizza logo"/>
                     <div>
                         <h1>PIZZA-SLICE</h1>
                         <p>самая вкусная пицца во вселенной</p>
