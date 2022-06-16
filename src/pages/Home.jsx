@@ -27,9 +27,9 @@ function Home( ) {
 	];
 
 	const sortItems = [
-		{name: 'популярности', type: 'popular'},
-		{name: 'цене', type: 'price'},
-		{name: 'алфавит', type: 'alphabet'},
+		{name: 'популярности', type: 'popular', order: 'desc'},
+		{name: 'цене', type: 'price', order: 'desc'},
+		{name: 'алфавит', type: 'name', order: 'asc'},
 	];
 
 
@@ -55,7 +55,7 @@ function Home( ) {
 							/>
 							<SortPopup
 								onClickSortType={onSelectType}
-								activeSortType={sortBy}
+								activeSortType={sortBy.type}
 								items={sortItems}
 							/>
 						</div>
