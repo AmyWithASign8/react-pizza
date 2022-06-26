@@ -6,6 +6,7 @@ import {setPizzas, fetchPizzas} from '../redux/actions/pizzas';
 import pizzas from '../redux/reducers/pizzas';
 import LoadingBlock from '../components/PizzaBlock/LoadingBlock';
 import filters from '../redux/reducers/filters';
+import Footer from '../components/Footer';
 
 function Home( ) {
 
@@ -62,12 +63,13 @@ function Home( ) {
 						<h2 className="content__title">Все пиццы</h2>
 						<div className="content__items">
 						{isLoaded 
-						?	items.map((obj) => <PizzaBlock onClickAddPizza={(ojb) => console.log(obj)} key={obj.id} isLoading={true} {...obj}/>)
-						:	Array(10).fill(0).map((_, index) => <LoadingBlock key={index}/>)
+						?	items.map((obj) => (<PizzaBlock onClickAddPizza={(obj) => console.log(obj)} key={obj.id}  {...obj}/>))
+						:	Array(12).fill(0).map((_, index) => <LoadingBlock key={index}/>)
 						}
 							
 							
 						</div>
+						
 					</div>
   )
 }

@@ -3,6 +3,7 @@ import { Header } from "./components";
 import React  from "react";
 import { Home, Cart } from "./pages";
 import { Routes, Route } from "react-router";
+import Footer from "./components/Footer";
 
 
 
@@ -20,7 +21,9 @@ function App() {
 						<Route path="/Cart" element={<Cart />} exact />
 					</Routes>
 				</div>
+				<Footer/>
 			</div>
+			
 		</div>
 	);
 }

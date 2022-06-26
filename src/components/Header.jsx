@@ -16,8 +16,8 @@ function Header(){
                 <div className="header__logo">
                     <img width="50" src={logoSvg} alt="Pizza logo"/>
                     <div>
-                        <h1>PIZZA-SLICE</h1>
-                        <p>самая вкусная пицца во вселенной</p>
+                        <h1>tasty pizza</h1>
+                        <p>вкусная и качественная пицца</p>
                     </div>
                 </div>
                 </Link>

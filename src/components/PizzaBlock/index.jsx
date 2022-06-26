@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Button } from '../Button';
 
 
-function PizzaBlock({id, name, imageUrl, price, types, sizes, onClickAddPizza}) {
+function PizzaBlock({id, name, imageUrl, price, types, sizes, onClickAddPizza, addedCount}) {
     const availableTypes = ['тонкое', 'традиционное'];
 	const availableSizes = ['26','30','40'];
     const [activeType, setActiveType] = React.useState(types[0]);
