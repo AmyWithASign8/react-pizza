@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import { Button } from '../Button';
 
 
-function PizzaBlock({id, name, imageUrl, price, types, sizes, onClickAddPizza, addedCount}) {
+function PizzaBlock({id, name, imageUrl, price, types, sizes, onClickAddPizza}) {
     const availableTypes = ['тонкое', 'традиционное'];
 	const availableSizes = ['26','30','40'];
     const [activeType, setActiveType] = React.useState(types[0]);
-	const [activeSize, setActiveSize] = React.useState(sizes[0]);
+	const [activeSize, setActiveSize] = React.useState(0);
 
     const onSelectType = (index) =>{
         setActiveType(index);
@@ -17,6 +17,17 @@ function PizzaBlock({id, name, imageUrl, price, types, sizes, onClickAddPizza, a
         setActiveSize(index);
     }
 
+	const onAddPizza = () => {
+		const obj = {
+			id, 
+			name, 
+			imageUrl, 
+			price,
+			size: activeSize,
+			type: activeType
+		};
+		onClickAddPizza(obj);
+	}
   return (
         <div className="pizza-block">
 								<img
@@ -55,7 +66,7 @@ function PizzaBlock({id, name, imageUrl, price, types, sizes, onClickAddPizza, a
 									<div className="pizza-block__price">
 										от {price} ₽
 									</div>
-									<Button  onClick={() => onClickAddPizza({id, name, imageUrl, price})} className="button--add" outline>
+									<Button  onClick={onAddPizza} className="button--add" outline>
 										<svg
 											width="12"
 											height="12"

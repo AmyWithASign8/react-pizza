@@ -21,6 +21,9 @@ function Header(){
                     </div>
                 </div>
                 </Link>
+                <Button className="button__authorization">
+                    Авторизация
+                </Button>
                 <div className="header__cart">
                         <Link to="/cart">
                         <Button className="button--cart">

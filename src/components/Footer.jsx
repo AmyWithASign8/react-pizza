@@ -5,7 +5,7 @@ function Footer() {
   return (
     <div className='footerStyles'>
         <div>
-          Контактная информация <br/>
+          Контактная информация: <br/><br/>
           Телефон: +7 (999) 999-99-99 <br />
           Эл. почта: tastypizza@gmail.com
         </div>
