@@ -20,10 +20,11 @@ function Header() {
             </div>
           </div>
         </Link>
+        
+        <div className="header__cart">
         <Button className="button__authorization">
                     Авторизация
                 </Button>
-        <div className="header__cart">
           <Link to="/cart">
             <Button className="button--cart">
               <span>{totalPrice} ₽</span>
