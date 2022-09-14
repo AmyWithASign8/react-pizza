@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import cartEmptyImage from '../assets/img/empty-cart.png';
-import { CartItem, Button } from '../components';
+import { CartItem, Button, Header } from '../components';
 import { clearCart, removeCartItem, plusCartItem, minusCartItem } from '../redux/actions/cart';
 
 function Cart() {
@@ -39,6 +39,9 @@ function Cart() {
   };
 
   return (
+    <div className='wrapper'>
+      <Header />
+      <div className='content'>
     <div className="container container--cart">
       {totalCount ? (
         <div className="cart">
@@ -173,14 +176,16 @@ function Cart() {
           <p>
             Вероятней всего, вы не заказывали ещё пиццу.
             <br />
-            Для того, чтобы заказать пиццу, перейди на главную страницу.
+            Для того, чтобы заказать пиццу, перейдите на главную страницу.
           </p>
           <img src={cartEmptyImage} alt="Empty cart" />
-          <Link to="/" className="button button--black">
+          <Link to="/Home" className="button button--black">
             <span>Вернуться назад</span>
           </Link>
         </div>
       )}
+    </div>
+    </div>
     </div>
   );
 }

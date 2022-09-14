@@ -1,0 +1,76 @@
+.form-title{
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+.form-field{
+    input{
+        height: 45px;
+        color: black;
+        width: 100%;
+        font-size: 14px;
+        line-height: 16px;
+        border: 2px solid white;
+        border-radius: 5px;
+        padding-left: 25px;
+    }
+    input:focus{
+        outline: none;
+        border: 2px solid $orange;
+    }
+    margin-bottom: 13px;
+}
+.register-form-container{
+    max-width: 415px;
+    width: 100%;
+    background: #d4d4d4;
+    box-shadow: 0px 6px 50px #ff2d2d59;
+    border-radius: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 38px;
+    padding-bottom: 38px;
+    border: 1px solid #ff2d2d13;
+    @media (max-height: 875px) {
+        margin-top: 170px;
+    }
+    @media (max-height: 730px) {
+        margin-top: 170px;
+    }
+}
+.buttonReg{
+    display: block;
+    height: 45px;
+    width: 100%;
+    border: 0;
+    background: $orange;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    line-height: 45px;
+}
+.buttonReg:hover{
+    background: #ff2d2d;
+    cursor: pointer;
+}
+.form-buttons{
+    button{
+        text-transform: uppercase;
+    }
+}
+.divider{
+    font-weight: 500px;
+    font-size: 22px;
+    line-height: 14px;
+    color: rgb(170, 32, 32);
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.mainReg{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,52 @@
+.firstSlide{
+    img{
+        height: 100%;
+        width: 100%;
+    }
+    .headerP{
+        position: absolute;
+        margin-top: 200px;
+        p{
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 60px;
+        }
+        width: 380px;
+        left: 100px;
+        top: 100px;
+        button{
+            width: 100%;
+            height: 50px;
+            font-size: 16px;
+            margin-top: 40px;
+            border-radius: 10px;
+        }
+    }
+}
+#root{
+    .header{
+        background-color: rgba(255, 255, 255, 0.822);
+    }
+}
+#aboutUsH1{
+    text-align: center;
+    margin-top: 100px;
+}
+.aboutUs{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 150px;
+    margin-top: 150px;
+    padding: 0px 50px;
+    img{
+        height: 350px;
+        width: 350px;
+    }
+    p{
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+    }
+}

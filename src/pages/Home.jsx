@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { Categories, SortPopup, PizzaBlock, PizzaLoadingBlock } from '../components';
+import { Categories, SortPopup, PizzaBlock, PizzaLoadingBlock, Header, Footer } from '../components';
 
 import { setCategory, setSortBy } from '../redux/actions/filters';
 import { fetchPizzas } from '../redux/actions/pizzas';
@@ -41,6 +41,9 @@ function Home() {
   };
 
   return (
+    <div className='wrapper'>
+      <Header />
+      <div className='content'>
     <div className="container">
       <div className="content__top">
         <Categories
@@ -69,6 +72,8 @@ function Home() {
               .fill(0)
               .map((_, index) => <PizzaLoadingBlock key={index} />)}
       </div>
+    </div>
+    </div>
     </div>
   );
 }
