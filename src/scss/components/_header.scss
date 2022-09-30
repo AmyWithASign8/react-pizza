@@ -8,6 +8,12 @@
   background-color: white;
   top: 0;
   z-index: 3;
+  @media (max-width: 1000px) {
+    height: 100px;
+  }
+  @media (max-width: 800px) {
+    height: 170px;
+  }
 
   .container {
     display: flex;
@@ -40,10 +46,16 @@
       letter-spacing: 1%;
       text-transform: uppercase;
       font-weight: 800;
+      @media (max-width: 800px) {
+        font-size: 18px;
+      }
     }
 
     p {
       color: #7b7b7b;
+      @media (max-width: 800px) {
+        font-size: 14px;
+      }
     }
   }
 }

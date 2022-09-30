@@ -8,7 +8,11 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "classnames": "^2.3.1",
+<<<<<<< HEAD
     "dotenv": "^16.0.3",
+=======
+    "http-proxy-middleware": "^2.0.6",
+>>>>>>> 93915e074ee405965addfc1f6bb9f4b38d11bdff
     "node-sass": "^7.0.1",
     "prop-types": "^15.8.1",
     "react": "^18.0.0",
