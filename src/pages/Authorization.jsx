@@ -1,70 +1,98 @@
-import React from 'react';
-import {Header} from '../components/index';
-import {Link} from 'react-router-dom'
+import React from "react";
+import { Header } from "../components/index";
+import { Link, useNavigate, useRoutes } from "react-router-dom";
+import validator from "validator";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setUser } from "../redux/actions/user";
 
 function Authorization() {
+  const dispatch = useDispatch();
 
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [emailDirty, setEmailDirty] = React.useState(false);
-  const [passwordDirty, setPasswordDirty] = React.useState(false);
-  const [emailError, setEmailError] = React.useState('Email не может быть пустым');
-  const [passwordError, setPasswordError] = React.useState('Пароль не может быть пустым');
-
-  const blurHandler = (e) => {
-    switch (e.target.name){
-      case 'email':
-          setEmailDirty(true);
-          break
+  const [fistName, setFirstName] = React.useState("");
+  const [lastName, setLastName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [emailError, setEmailError] = React.useState("");
+  const [passwordError, setPasswordError] = React.useState("");
+  const router = useNavigate();
+  const onSubmit = () => {
+    if (password != "" && email != "") {
+      axios
+        .post(" https://160f-136-169-174-238.eu.ngrok.io/api/user/reg", {
+          email,
+          password,
+        })
+        .then((res) => {
+          dispatch(setUser(res.data));
+          router("/", { replace: true });
+        });
     }
-  }
-
-  const emailHandler = (e) => {
-    setEmail(e.target.value)
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (!re.test(String(e.target.value).toLowerCase())) {
-        setEmailError('Некорректный email')
-    }else{
-      setEmailError('')
-    }
-  }
-
-
+    if (!validator.isEmail(email)) {
+      setEmailError("Ваш email не соответствует формату");
+    } else setEmailError("");
+    if (password.length < 8)
+      setPasswordError("Пароль не должен быть короче 8 символов");
+  };
+  const onChangeEmail = (value) => {
+    setEmail(value);
+  };
 
   return (
     <div>
-    <Header noCart noReg/>
-    <div className='mainReg'>
-        <div className='circle'></div>
-        <div className='register-form-container'>
-          <h1 className='form-title'>Регистрация</h1>
-          <div className='form-fields'>
-            <div className='form-field'>
-              <input placeholder='Имя'/>
+      <Header noCart noReg />
+      <div className="mainReg">
+        <div className="circle"></div>
+        <div className="register-form-container">
+          <h1 className="form-title">Регистрация</h1>
+          <div className="form-fields">
+            <div className="form-field"></div>
+            <div className="form-field"></div>
+            <p>Email</p>
+            <div className="form-field">
+              <input
+                name="email"
+                type="text"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => onChangeEmail(e.target.value)}
+              />
+              {emailError && (
+                <p style={{ color: "red", textAlign: "center" }}>
+                  {emailError}
+                </p>
+              )}
             </div>
-            <div className='form-field'>
-              <input placeholder='Фамилия'/>
-            </div>
-            <div className='form-field'>
-              {(emailDirty && emailError) && <div style={{color:'red'}}>{emailError}</div>}
-              <input onChange={e => emailHandler(e)} value={email} onBlur={e => blurHandler(e)}  name='email' type='text' placeholder='Email'/>
-            </div>
-            <div className='form-field'>
-            {(passwordDirty && passwordError) && <div style={{color:'red'}}>{passwordError}</div>}
-              <input onBlur={e => blurHandler(e)}  name='password' placeholder='Пароль' type="password"/>
+            <p>Пароль</p>
+            <div className="form-field">
+              <input
+                name="password"
+                placeholder="Пароль"
+                type="password"
+                pattern="^[a-zA-Z\s]+$"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              {passwordError && (
+                <p style={{ color: "red", textAlign: "center" }}>
+                  {passwordError}
+                </p>
+              )}
             </div>
           </div>
-          <div className='form-buttons'>
-            <button className='buttonReg'>Регистрация</button>
-            <div className='divider'>или</div>
-            <Link to='/login'>
-              <a className='buttonReg'>Вход в свой аккаунт</a>
+          <div className="form-buttons">
+            <button className="buttonReg" onClick={onSubmit}>
+              Регистрация
+            </button>
+            <div className="divider">или</div>
+            <Link to="/login">
+              <a className="buttonReg">Вход в свой аккаунт</a>
             </Link>
           </div>
         </div>
+      </div>
     </div>
-    </div>
-  )
+  );
 }
 
-export default Authorization
+export default Authorization;
