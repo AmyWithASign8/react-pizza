@@ -24,7 +24,8 @@ function Header({ noCart, noReg }) {
           </div>
         </Link>
         {user.email ? (
-          <div>
+          <div className="profileDiv">
+            <p style={{ fontWeight: "bold", fontSize: "14pt" }}>{user.email}</p>
             <Button
               onClick={() => {
                 disptach(deleteUser());
@@ -33,7 +34,6 @@ function Header({ noCart, noReg }) {
             >
               Выход
             </Button>
-            <p>{user.email}</p>
           </div>
         ) : (
           <Link to="/reg">

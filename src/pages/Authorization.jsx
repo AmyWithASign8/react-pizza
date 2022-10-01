@@ -19,7 +19,7 @@ function Authorization() {
   const onSubmit = () => {
     if (password != "" && email != "") {
       axios
-        .post(" https://160f-136-169-174-238.eu.ngrok.io/api/user/reg", {
+        .post("   https://c7a2-136-169-174-238.eu.ngrok.io/api/user/reg", {
           email,
           password,
         })
